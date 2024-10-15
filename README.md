@@ -43,5 +43,3 @@ Este repositorio contiene el material y los ejemplos del curso de Spring Framewo
 ## Recursos Adicionales
 
 - Documentación Oficial de Spring
-- Repositorio GitHub del Curso# esp-trab_Framework_Spring_Pildoras
-# esp-trab_Framework_Spring_Pildoras
