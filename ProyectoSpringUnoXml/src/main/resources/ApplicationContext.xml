@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd ">
+
+	<!--********* Archivo externo con los datos Para injectar los Atibutos de la clase DirectorEmpleado()
+		<context:property-placeholder location="classpath:datosEmpresa.propiedades" /> -->
+
+    <!-- Definir bean Creación de la Dependencia (Clase que implementa la Interfaz CreacionInformes) -->
+    <!--/ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/Informe.java -->
+    <bean id="miInforme" class="es.pildorasIoC.Basico.Informe"></bean>
+
+
+
+
+
+	<!--***** Definir bean DirectorEmpleado con  Inyección a través del Constructor ********-->
+	<!--/ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/DirectorEmpleado.java -->
+	<bean id="miEmpleado" class="es.pildorasIoC.Basico.DirectorEmpleado">
+	
+	   <!--DirectorEmpleado(CreacionInformes informeNuevo) => constructo reciviendo instancia como parameto" -->
+		<constructor-arg ref="miInforme"></constructor-arg> <!--(IoC)-->
+	</bean>
+
+
+
+
+
+
+
+	<!--****** Definir bean SecretarioEmpleados con Inyección a través del Metodo seter (setInformeNuevo(...)) ***** -->
+	<!--/ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/SecretarioEmpleados.java -->
+	<bean id="miSecretarioEmpleados" class="es.pildorasIoC.Basico.SecretarioEmpleados">
+	
+	<!--setInformeNuevo() ==> name="informeNuevo (En minuscula, sin los parentesis y la palabra set )" -->
+		<property name="informeNuevo" ref="miInforme"></property>  <!--(IoC)-->
+	</bean>
+
+
+
+
+
+
+	<!--***** Definir bean  JefeEmpleados ***** -->
+	<!-- /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/JefeEmpleados.java -->
+	<bean id="JefeEmpleados" class="es.pildorasIoC.Basico.JefeEmpleados">
+		<!-- <property name="informeNuevo" ref="miInforme"></property> --> <!--(IoC)-->
+	</bean>
+
+
+
+
+
+
+
+	<!-- bean ?? -->
+	<!-- /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/JefeEmpleados.java -->
+	<!-- <bean id="miEmpleado" class="es.pildoras.IoC.JefeEmpleados">
+	<constructor-arg ref="miInforme"></constructor-arg>
+		</bean> -->
+
+</beans>
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
