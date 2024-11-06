@@ -5,7 +5,39 @@ public class JefeEmpleados implements Empleados {
 
 	private CreacionInformes informeNuevo;
 
+	// Propiedad que almacena la inyección del nombreEmpresa
+	private String telefono;// (Ioc)
 
+	// Propiedad que almacena la inyección del nombreEmpresa
+	private String telefono2;// (Ioc)
+
+
+
+	public String getTelefono() {
+		return this.telefono;
+	}
+
+
+
+	// Establece el valor de los campos del AplicationContext.xml
+	// Realiza la inyeccion de la dependencia por el metodo setter (Ioc)
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+
+
+	public String getTelefono2() {
+		return this.telefono2;
+	}
+
+
+
+	// Establece el valor de los campos del AplicationContext.xml
+	// Realiza la inyeccion de la dependencia por el metodo setter (Ioc)
+	public void setTelefono2(String telefono2) {
+		this.telefono2 = telefono2;
+	}
 
 
 	/*

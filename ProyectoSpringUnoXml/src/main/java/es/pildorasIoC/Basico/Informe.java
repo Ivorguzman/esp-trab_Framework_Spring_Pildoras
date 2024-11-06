@@ -5,7 +5,7 @@ package es.pildorasIoC.Basico;
 public class Informe implements CreacionInformes {
 
 	@Override public String getInforme() {
-		return " y esta es la presentaion del informe  ";
+		return " y esta es la presentación del informe  ";
 	}
 
 }

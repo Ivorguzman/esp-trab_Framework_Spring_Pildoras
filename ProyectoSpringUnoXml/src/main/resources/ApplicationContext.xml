@@ -38,8 +38,19 @@
 	
 	<!--setInformeNuevo() ==> name="informeNuevo (En minuscula, sin los parentesis y la palabra set )" -->
 		<property name="informeNuevo" ref="miInforme"></property>  <!--(IoC)-->
-	</bean>
+		
+		
+		<!--setEmail() ==> name="email"(En minuscula, sin los parentesis y la palabra set )" -->
+		<property name="email"  value="@gmail.com"></property>
+		
+		<!--setNombreEmpresa() ==> name="nombreEmpresa (En minuscula, sin los parentesis y la palabra set )" -->
+		<property name="nombreEmpresa" value="IZG Solutions"></property>
 
+	
+	<!--setTelefono() ==> name="teléfono (En minuscula, sin los parentesis y la palabra set )" -->
+        <property name="telefono" value=" +58 0424-764-67-51"></property>
+        
+    </bean>
 
 
 
@@ -48,7 +59,9 @@
 	<!--***** Definir bean  JefeEmpleados ***** -->
 	<!-- /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/JefeEmpleados.java -->
 	<bean id="JefeEmpleados" class="es.pildorasIoC.Basico.JefeEmpleados">
-		<!-- <property name="informeNuevo" ref="miInforme"></property> --> <!--(IoC)-->
+		<!--setTelefono() ==> name="teléfono (En minuscula, sin los parentesis y la palabra set )" -->
+        <property name="telefono" value=" +001 0424-764-67-51"></property>
+         <property name="telefono2" value="+351 0424-764-67-51"></property>
 	</bean>
 
 

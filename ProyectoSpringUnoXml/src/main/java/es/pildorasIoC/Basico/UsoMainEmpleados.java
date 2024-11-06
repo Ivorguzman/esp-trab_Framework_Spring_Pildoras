@@ -48,7 +48,9 @@ public class UsoMainEmpleados {
 
 		SecretarioEmpleados Maria = contexto.getBean("miSecretarioEmpleados", SecretarioEmpleados.class);
 
-		// JefeEmpleados Antonia = contexto.getBean("JefeEmpleados", JefeEmpleados.class);
+
+		JefeEmpleados Pedro = contexto.getBean("JefeEmpleados", JefeEmpleados.class);
+		JefeEmpleados Antonia = contexto.getBean("JefeEmpleados", JefeEmpleados.class);
 
 
 
@@ -78,23 +80,33 @@ public class UsoMainEmpleados {
 
 
 
-		System.out.println("3. Inyección de campos:");
+		System.out.println("3. Inyección a través campos:");
+		System.out.println("Email Corporativo : " + Maria.getEmail());
+		System.out.println("Nombre de la Empresa : " + Maria.getNombreEmpresa());
+		System.out.println();
+		System.out.println();
 
 
-		// Prueba
+		System.out.println("3. Inyección a través campos:");
+		System.out.println("Teléfono - Maria : " + Maria.getTelefono());
+		System.out.println();
+		System.out.println();
 
 
-		// Paso 3 Utilizar el Bean para injeccion de campos o atributos de una clase (JefeEmpleados)
-		// System.out.println("Empleada Antonia " + Antonia.getTareas());
-		// System.out.println("Empleada Antonia" + Antonia.getInforme());
 
+		System.out.println("3. Inyección a través campos:");
+		System.out.println("Teléfono - Antonia : " + Antonia.getTelefono());
+		System.out.println();
+		System.out.println();
+
+		System.out.println("3. Inyección a través campos:");
+		System.out.println("Teléfono - Pedro : " + Pedro.getTelefono2());
+		System.out.println();
 		System.out.println();
 
 
 
 		System.out.println(contexto.toString());
-		System.out.println();
-
 
 		// Paso 4 Cerrar el XML
 		contexto.close();
