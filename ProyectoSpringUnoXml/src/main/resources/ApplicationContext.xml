@@ -11,7 +11,7 @@
 		<context:property-placeholder location="classpath:datosEmpresa.propiedades" /> -->
 
     <!-- Definir bean Creación de la Dependencia (Clase que implementa la Interfaz CreacionInformes) -->
-    <!--/ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/Informe.java -->
+    <!--classpath = /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/Informe.java -->
     <bean id="miInforme" class="es.pildorasIoC.Basico.Informe"></bean>
 
 
@@ -19,7 +19,7 @@
 
 
 	<!--***** Definir bean DirectorEmpleado con  Inyección a través del Constructor ********-->
-	<!--/ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/DirectorEmpleado.java -->
+	<!--classpath = /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/DirectorEmpleado.java -->
 	<bean id="miEmpleado" class="es.pildorasIoC.Basico.DirectorEmpleado">
 	
 	   <!--DirectorEmpleado(CreacionInformes informeNuevo) => constructo reciviendo instancia como parameto" -->
@@ -33,7 +33,7 @@
 
 
 	<!--****** Definir bean SecretarioEmpleados con Inyección a través del Metodo seter (setInformeNuevo(...)) ***** -->
-	<!--/ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/SecretarioEmpleados.java -->
+	<!--classpath = /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/SecretarioEmpleados.java -->
 	<bean id="miSecretarioEmpleados" class="es.pildorasIoC.Basico.SecretarioEmpleados">
 	
 	<!--setInformeNuevo() ==> name="informeNuevo (En minuscula, sin los parentesis y la palabra set )" -->
@@ -48,7 +48,7 @@
 
 	
 	<!--setTelefono() ==> name="teléfono (En minuscula, sin los parentesis y la palabra set )" -->
-        <property name="telefono" value=" +58 0424-764-67-51"></property>
+        <property name="telefono" value=" + 764-67-51"></property>
         
     </bean>
 
@@ -57,24 +57,13 @@
 
 
 	<!--***** Definir bean  JefeEmpleados ***** -->
-	<!-- /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/JefeEmpleados.java -->
+	<!-- classpath = /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/JefeEmpleados.java -->
 	<bean id="JefeEmpleados" class="es.pildorasIoC.Basico.JefeEmpleados">
 		<!--setTelefono() ==> name="teléfono (En minuscula, sin los parentesis y la palabra set )" -->
         <property name="telefono" value=" +001 0424-764-67-51"></property>
-         <property name="telefono2" value="+351 0424-764-67-51"></property>
+        <property name="telefono2" value="+351 0424-764-67-51"></property>
 	</bean>
 
-
-
-
-
-
-
-	<!-- bean ?? -->
-	<!-- /ProyectoSpringUnoXml/src/main/java/es/pildorasIoC/Basico/JefeEmpleados.java -->
-	<!-- <bean id="miEmpleado" class="es.pildoras.IoC.JefeEmpleados">
-	<constructor-arg ref="miInforme"></constructor-arg>
-		</bean> -->
 
 </beans>
 

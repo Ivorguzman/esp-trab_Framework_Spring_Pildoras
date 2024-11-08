@@ -16,13 +16,32 @@ public class SecretarioEmpleados implements Empleados {
 	// Propiedad que almacena la inyección del nombreEmpresa
 	private String telefono;// (Ioc)
 
+	// Propiedad que alamacena direccion Pagina Web
+	private String paginaWeb;// (Ioc)
 
+
+
+
+
+	//*************** Setters Y Getters *****************
+	
+	public String getPaginaWeb() {
+		return this.paginaWeb;
+	}
+
+
+
+
+	public void setPaginaWeb(String paginaWeb) {
+		this.paginaWeb = paginaWeb;
+	}
 
 
 
 	public String getTelefono() {
 		return this.telefono;
 	}
+
 
 
 

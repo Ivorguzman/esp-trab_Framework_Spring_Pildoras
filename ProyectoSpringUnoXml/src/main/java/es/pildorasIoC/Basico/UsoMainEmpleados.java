@@ -35,6 +35,7 @@ public class UsoMainEmpleados {
 
 		// Paso 1 Crear contexto(Cargar archivo XML).
 		ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		ClassPathXmlApplicationContext contextoPropirdades = new ClassPathXmlApplicationContext("ApplicationContext_conPropiedades.xml");
 
 
 		// Paso 2 Pedir el Bean.
@@ -42,12 +43,10 @@ public class UsoMainEmpleados {
 		 * El método getBean() es una forma de obtener una instancia de un bean
 		 * que está registrado en el contenedor de Spring.
 		 */
-
-
 		DirectorEmpleado Juan = contexto.getBean("miEmpleado", DirectorEmpleado.class);
 
 		SecretarioEmpleados Maria = contexto.getBean("miSecretarioEmpleados", SecretarioEmpleados.class);
-
+		SecretarioEmpleados Ana = contextoPropirdades.getBean("miSecretarioEmpleados", SecretarioEmpleados.class);
 
 		JefeEmpleados Pedro = contexto.getBean("JefeEmpleados", JefeEmpleados.class);
 		JefeEmpleados Antonia = contexto.getBean("JefeEmpleados", JefeEmpleados.class);
@@ -56,9 +55,8 @@ public class UsoMainEmpleados {
 
 
 
-		// Paso 3 Utilizar el Bean para injeccion de constructor.
-
-		System.out.println("1. Inyección a través del Constructor: ");
+		// Utilizar el Bean para injeccion través del Constructor
+		System.out.println("Inyección a través del Constructor: ");
 		System.out.println("Empleado Juan " + Juan.getTareas());
 		System.out.println("Empleado Juan " + Juan.getInforme());
 		System.out.println();
@@ -67,9 +65,8 @@ public class UsoMainEmpleados {
 
 
 
-
-
-		System.out.println("2. Inyección a través del Setter:");
+		// Utilizar el Bean para injeccion través del Setter
+		System.out.println("Inyección a través del Setter:");
 		System.out.println("Empleada Maria " + Maria.getTareas());
 		System.out.println("Empleada Maria " + Maria.getInforme());
 		System.out.println();
@@ -78,38 +75,50 @@ public class UsoMainEmpleados {
 
 
 
-
-
-		System.out.println("3. Inyección a través campos:");
+		// Utilizar el Bean para injeccion través campos
+		System.out.println("Inyección a través campos:");
 		System.out.println("Email Corporativo : " + Maria.getEmail());
 		System.out.println("Nombre de la Empresa : " + Maria.getNombreEmpresa());
 		System.out.println();
 		System.out.println();
 
 
-		System.out.println("3. Inyección a través campos:");
+		System.out.println("Inyección a través campos:");
 		System.out.println("Teléfono - Maria : " + Maria.getTelefono());
 		System.out.println();
 		System.out.println();
 
 
-
-		System.out.println("3. Inyección a través campos:");
+		System.out.println("Inyección a través campos:");
 		System.out.println("Teléfono - Antonia : " + Antonia.getTelefono());
 		System.out.println();
 		System.out.println();
 
-		System.out.println("3. Inyección a través campos:");
+
+		System.out.println("Inyección a través campos:");
 		System.out.println("Teléfono - Pedro : " + Pedro.getTelefono2());
 		System.out.println();
 		System.out.println();
 
 
 
+
+
+		// Utilizar el Bean para injeccion de propiedades
+		System.out.println("Inyección a través Archivo de propiedades:");
+		System.out.println("Página - Ana: " + Ana.getPaginaWeb());
+		System.out.println();
+		System.out.println();
+
+
 		System.out.println(contexto.toString());
+		System.out.println(contextoPropirdades.toString());
+
+
 
 		// Paso 4 Cerrar el XML
 		contexto.close();
+		contextoPropirdades.close();
 
 
 	}
