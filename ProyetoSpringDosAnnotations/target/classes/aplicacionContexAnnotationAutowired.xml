@@ -1,54 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="
-    http://www.springframework.org/schema/beans   
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.1.xsd ">
     
-
-
-	<!--* **********************************************************************
-		Los beans son componentes de software reutilizables que pueden ser manipulados
-		visualmente por una herramienta de programación; En el lenguaje Java. Los
-		beans son clases Java que cumplen con ciertas normas respecto a los nombres
-		de sus propiedades y métodos. Los beans deben tener un constructor sin argumentos,
-		además de tener declarados todos sus atributos como privados. Para cada atributo,
-		debe haber un método setter y getter, añadiendo la palabra set o get al nombre
-		del atributo. Bean en inglés significa “frijol, haba, alubia” . El término
-		bean se usa en informática para referirse a un componente de software reutilizable
-		que se escribe en el lenguaje en un programación . El nombre bean
-		se eligió porque los componentes de software son como granos o semillas que
-		se pueden plantar en cualquier lugar y crecer en aplicaciones más complejas -->
-
-
-	<!--* ************************************************************************
-		¿Qué es la inyección de dependencia?
-
-		Dependencia : un objeto normalmente requiere objetos de otras clases para
-		realizar sus operaciones. A estos objetos los llamamos dependencias.
-
-		Inyección : El proceso de proporcionar las dependencias requeridas a un
-		objeto. Por lo tanto, la inyección de dependencia ayuda a implementar la
-		inversión
-		de control (IoC).
-
-		Esto significa que la responsabilidad de crear objetos e inyectar las dependencias
-		se le da al marco (es decir, Spring) en lugar de que la clase cree los objetos
-		de dependencia por sí misma.
-	-->
-
-
-
+        <!-- 
+    Definición del espacio de nombres XML. 
+    - xmlns: Define el espacio de nombres principal para los elementos <beans>.
+    - xmlns:p: Define el espacio de nombres para configuraciones de propiedades en línea.
+    - xmlns:xsi: Define el espacio de nombres para instancias XML Schema.
+    - xmlns:context: Define el espacio de nombres para el contexto de Spring.
+    - xsi:schemaLocation: Proporciona las ubicaciones del esquema XSD para la validación.
+    -->
+    
+    
+    
+ 
+	<context:component-scan base-package="es.pildorasIoC.AnnotationsAutowired" />
 	<!-- * ********************************************************************
 		<context:component-scan base-package="..."/> es una anotación de Spring
 
-		que le permite
-		especifcar los paquetes que desea escanear para buscar las clases anotadas
-		con:
+		que le permite specifcar los paquetes que debe escanear para buscar las clases anotadas con:
 		@Component, @Service, @Repository, @Controller u otras anotaciones personalizadas.
-		Estas clases se registran como beans de Spring y se pueden inyectar en
+		Estas clases se registran como __beans de Spring__ y se pueden inyectar en
 		otras partes de su aplicación.
 
 		La ventaja de usar context:component-scan es que no tiene que declarar
@@ -57,10 +33,9 @@
 		el procesamiento de otras anotaciones dentro de los beans, como @Autowired, @PostConstruct,
 		@Value, etc.
 
-		Un ejemplo de uso de context:component-scan es el siguiente DONDE base-package="es.pildorasIoC.Annotations"
-		es paquete a escanear donde se encuentran las clases a escanear
+		Un ejemplo de uso de context:component-scan es el siguiente DONDE base-package="es.pildorasIoC.AnnotationsAutowired"
+		es el paquete a escanear donde se encuentran las clases a escanear
 	-->
-	<context:component-scan base-package="es.pildorasIoC.AnnotationsAutowired" />
 
 
 </beans>
