@@ -1,6 +1,8 @@
-package es.pildorasIoC.AnnotationsAutowiredSeter;
+package es.pildorasIoC.AnnotationsSingletosPrototype;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
@@ -15,22 +17,26 @@ import org.springframework.stereotype.Component;
 
 
 
+@Scope("prototype")
+// @Scope("singleton")
 // @Component("ComercialExperimentadoAutowired")
-@Component // Sin espesificar el id registra el bean con el nombre de la la clase en minuscula
-public class ComercialExperimentadoAutowired implements Empleados {
+@Component // Sin espesificar el id registra el bean con el nombre de la la clase en minuscula y por defecto en singleton
+public class ComercialExperimentadoPatrones implements Empleados {
 
 
 
-	@Autowired  // Injeccón de dependencia con campo de clase
+	// @Autowired // Injeccón de dependencia con campo de clase
 	private CreacionInformeFinanciero nuevoInforme;
 
 
-	/*
-	 * @Autowired // Injeccón de dependencia con metodo seters
-	 * public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
-	 * this.nuevoInforme = nuevoInforme;
-	 * }
-	 */
+	// @Qualifier("informeFinacieroTrimestre1") // Indica que clase injectar
+	@Qualifier("informeFinancieroTriemestre2") // Indica que clase injectar
+	//@Qualifier("informeFinamcieroTrimentre3") // Indica que clase injectar
+	@Autowired // Injeccón de dependencia con metodo seters
+	public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
+		this.nuevoInforme = nuevoInforme;
+	}
+
 
 
 

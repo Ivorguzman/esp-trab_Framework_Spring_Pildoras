@@ -1,5 +1,7 @@
 package es.pildorasIoC.AnnotationsQualifier;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -26,7 +28,9 @@ public class ComercialExperimentadoQualifier implements Empleados {
 	private CreacionInformeFinanciero nuevoInforme;
 
 
-	@Qualifier("informeFinacieroTrimestre1") // Indica que clase injectar
+	// @Qualifier("informeFinacieroTrimestre1") // Indica que clase injectar
+	@Qualifier("informeFinancieroTriemestre2") // Indica que clase injectar
+	//@Qualifier("informeFinamcieroTrimentre3") // Indica que clase injectar
 	@Autowired // Injeccón de dependencia con metodo seters
 	public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
 		this.nuevoInforme = nuevoInforme;

@@ -30,15 +30,12 @@ public class ComercialExperimentadoAutowired implements Empleados {
 	 * 3. Encuentra `InformeFinacieroTrimestre1`.
 	 * 4. Inyecta `InformeFinacieroTrimestre1` en el constructor.
 	 * 5. Crea una instancia de `ComercialExperimentadoAutowired` con `nuevoInforme` correctamente configurado.
-	 * Resumen
+	 * 
+	 * Nota: desde la version 4.3:
 	 * Un Constructor Único: No requiere @Autowired.
-	 * 
 	 * Múltiples Constructores: Necesita @Autowired para indicar el constructor correcto.
-	 * 
 	 * Inyección de Campos: Requiere @Autowired.
-	 * 
 	 * Inyección de Métodos Setter: Requiere @Autowired.
-	 * 
 	 * Inyección en Métodos: Requiere @Autowired.
 	 */
 	@Autowired // IoC por medio del constructor

@@ -1,4 +1,4 @@
-package es.pildorasIoC.AnnotationsAutowiredSeter;
+package es.pildorasIoC.AnnotationsAutowiredSeterCamposMetodos;
 
 public interface Empleados {
 
