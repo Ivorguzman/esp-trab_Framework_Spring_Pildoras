@@ -1,113 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans   
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-    http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context-3.1.xsd ">
+<?xml version="1.0" encoding="UTF-8"?> <!-- * Declaración de la versión y codificación del XML -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   
+                           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context-3.1.xsd ">
 
+    <!-- ********* Archivo externo con los datos para inyectar los atributos de la clase DirectorEmpleado() -->
+    <context:property-placeholder location="classpath:datosEmpresa.propiedades" />
 
+    <!-- ****** Bean para inyectar al constructor ****** -->
 
-	<!--********* Archivo externo con los datos Para injectar los Atibutos de
-		la clase DirectorEmpleado() -->
-	<context:property-placeholder location="classpath:datosEmpresa.propiedades" />
+    <!-- Paso 3 : Creación de la dependencia -->
 
+    <!-- ******* bean 01 ****** -->
+    <!-- * [bean Informe()] Con Parámetro init-method y destroy-method -->
+    <bean id="miInforme" class="es.pildorasIoC.CicloVidaDelBean.Informe"></bean>
 
+    <!-- ******* bean 02 ****** -->
+    <!-- * [bean DirectorEmpleado()] Con Parámetro init-method y destroy-method -->
+    <!-- * Permite especificar las propiedades del bean como atributos de la etiqueta bean -->
+    <!-- * (p:empresa="Masato c.a" p:correo="secretaria@masato.com") -->
+    <bean id="miEmpleado" class="es.pildorasIoC.CicloVidaDelBean.DirectorEmpleado" p:empresa="Masato c.a" p:correo="secretaria@masato.com"
+          init-method="inicio" destroy-method="fin">
 
+        <!-- * El <constructor-arg ref="" | value="" |... /> se utiliza en la inyección de constructores -->
+        <!-- * La inyección de constructores hace que las dependencias de una clase sean explícitas, ya que se enumeran como parámetros en el constructor -->
+        <!-- * Esto facilita a otros desarrolladores comprender las relaciones entre las clases y sus dependencias -->
 
-	<!--****** Bean para injectar al constructor ******** -->
+        <!-- * Los valores también se pueden inyectar por referencia -->
+        <!-- * Una definición de bean se puede inyectar en otra. Para hacer esto, use el atributo ref del constructor-arg o de la propiedad en lugar del atributo de valor -->
+        <!-- * El atributo ref se refiere a la identificación de otra definición de bean -->
+        <constructor-arg ref="miInforme" />
 
-	<!-- Paso 3 : Creacon de la dependencia -->
+        <!-- ********* Para inyectar los atributos de la clase con la configuración de archivo externo (datosEmpresa.propiedades) -->
+        <!--
+        <property name="correo" value="${direccionDeCorreo}"></property>
+        <property name="empresa" value="${nombreDeLaEmpresa}"></property>
+        -->
 
-	<!-- ******* bean 01 ****** -->
-	<!--[bean Informe()] Con Parametro init-metohod y destroy-metohod -->
-	<bean id="miInforme" class="es.pildorasIoC.CicloVidaDelBean.Informe"></bean>
-
-
-	<!--******* bean 02 -->
-	<!--[bean DirectorEmpleado()] Con Parametro init-metohod y destroy-metohod -->
-	<!-- permite especificar las propiedades del bean como atributos de la etiqueta
-		bean
-		(p:empresa="Masato c.a" p:correo="secretaria@masato.com") -->
-	<bean id="miEmpleado" class="es.pildorasIoC.CicloVidaDelBean.DirectorEmpleado" p:empresa="Masato c.a" p:correo="secretaria@masato.com"
-		init-method="inicio" destroy-method="fin">
-
-
-		<!--El <constructor-arg ref="" | value="" |... /> se utiliza en la inyección
-			de constructores.
-			La inyección de constructores hace que las dependencias de una clase sean
-			explícitas, ya que se enumeran como parámetros en el constructor. Esto
-			facilita a otros desarrolladores comprender las relaciones entre las clases
-			y sus dependencias.
-
-			Los valores también se pueden inyectar por referencia :
-			una definición de bean se puede inyectar en otra. Para hacer esto,
-			use el atributo ref del constructor-arg o de la propiedad en lugar del
-			atributo de valor . El atributo ref: luego se refiere a la identificación
-			de otra definición de bean. -->
-		<constructor-arg ref="miInforme" />
-
-
-
-		<!--********* Para injectar los Atibutos de la clase con la configuracion
-			de archivo externo (datosEmpresa.propiedades) -->
-		<!--
-			<property name="correo" value="${direcionDeCorreo}"></property>
-			<property name="empresa" value="${nombreDeLaEmpresa}"></property>
-		-->
-
-
-
-		<!-- ********* Para injectar los Atibutos o Compos de la clase en forma
-			Directa ******* -->
-		<!-- <property name="correo" value="secretaria@masato.com"></property> -->
-		<!-- <property name="empresa" value="Masato c.a"></property> -->
-	</bean>
+        <!-- ********* Para inyectar los atributos o campos de la clase en forma directa ******* -->
+        <!-- <property name="correo" value="secretaria@masato.com"></property> -->
+        <!-- <property name="empresa" value="Masato c.a"></property> -->
+    </bean>
 
 </beans>
 
+<!-- Los beans son componentes de software reutilizables que pueden ser manipulados visualmente por una herramienta de programación; en el lenguaje Java.
+     Los beans son clases Java que cumplen con ciertas normas respecto a los nombres de sus propiedades y métodos.
 
+     Los beans deben tener un constructor sin argumentos, además de tener declarados todos sus atributos como privados.
+     Para cada atributo, debe haber un método setter y getter, añadiendo la palabra set o get al nombre del atributo.
+     Bean en inglés significa “frijol, haba, alubia”.
 
-
-<!-- Los beans son componentes de software reutilizables que pueden ser manipulados
-	visualmente por una herramienta de programación; En el lenguaje Java.
-	Los beans son clases Java que cumplen con ciertas normas respecto a los nombres
-	de sus propiedades y métodos.
-
-	Los beans deben tener un constructor sin argumentos, además de tener declarados
-	todos sus atributos como privados. Para cada atributo,
-	debe haber un método setter y getter, añadiendo la palabra set o get al nombre
-	del atributo. Bean en inglés significa “frijol, haba, alubia” .
-
-	El término bean se usa en informática para referirse a un componente de software reutilizable
-	que se escribe en el lenguaje en un programación .
-	El nombre bean se eligió porque los componentes de software son como
-	granos o semillas que se pueden plantar en cualquier lugar
-	y crecer en aplicaciones más complejas -->
-
+     El término bean se usa en informática para referirse a un componente de software reutilizable que se escribe en el lenguaje de programación.
+     El nombre bean se eligió porque los componentes de software son como granos o semillas que se pueden plantar en cualquier lugar y crecer en aplicaciones más complejas
+-->
 
 <!--
-	¿Qué es la inyección de dependencia?
+    ¿Qué es la inyección de dependencia?
 
-	Dependencia : un objeto normalmente requiere objetos de otras clases sus
-	metodos y propiedades para realizar sus operaciones.
-	A estos objetos los llamamos dependencias.
+    Dependencia: un objeto normalmente requiere objetos de otras clases (sus métodos y propiedades) para realizar sus operaciones.
+    A estos objetos los llamamos dependencias.
 
-	Inyección : El proceso de proporcionar las dependencias requeridas a un
-	objeto. Por lo tanto, la inyección de dependencia ayuda a implementar la
-	inversión de control (IoC).
+    Inyección: el proceso de proporcionar las dependencias requeridas a un objeto.
+    Por lo tanto, la inyección de dependencia ayuda a implementar la inversión de control (IoC).
 
-	Esto significa que la responsabilidad de crear objetos e inyectar las dependencias
-	se le da al marco (es decir, Spring) en lugar de que la clase cree los objetos
-	de dependencia por sí misma.
+    Esto significa que la responsabilidad de crear objetos e inyectar las dependencias se le da al framework (es decir, Spring)
+    en lugar de que la clase cree los objetos de dependencia por sí misma.
 -->
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
