@@ -5,7 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class UsoMainEmpleados {
 
 
-	@SuppressWarnings("resource") public static void main(String[] args) {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
 
 		// Creación de objetos tipo empleado
 		/*
@@ -57,8 +58,8 @@ public class UsoMainEmpleados {
 
 		// Utilizar el Bean para injeccion través del Constructor
 		System.out.println("Inyección a través del Constructor: ");
-		System.out.println("Empleado Juan " + Juan.getTareas());
-		System.out.println("Empleado Juan " + Juan.getInforme());
+		System.out.println("Empleado Juan => " + Juan.getTareas());
+		System.out.println("Empleado Juan => " + Juan.getInforme());
 		System.out.println();
 		System.out.println();
 
@@ -67,8 +68,8 @@ public class UsoMainEmpleados {
 
 		// Utilizar el Bean para injeccion través del Setter
 		System.out.println("Inyección a través del Setter:");
-		System.out.println("Empleada Maria " + Maria.getTareas());
-		System.out.println("Empleada Maria " + Maria.getInforme());
+		System.out.println("Empleada Maria => " + Maria.getTareas());
+		System.out.println("Empleada Maria => " + Maria.getInforme());
 		System.out.println();
 		System.out.println();
 
@@ -77,26 +78,26 @@ public class UsoMainEmpleados {
 
 		// Utilizar el Bean para injeccion través campos
 		System.out.println("Inyección a través campos:");
-		System.out.println("Email Corporativo : " + Maria.getEmail());
-		System.out.println("Nombre de la Empresa : " + Maria.getNombreEmpresa());
+		System.out.println("Email Corporativo =>  " + Maria.getEmail());
+		System.out.println("Nombre de la Empresa =>  " + Maria.getNombreEmpresa());
 		System.out.println();
 		System.out.println();
 
 
 		System.out.println("Inyección a través campos:");
-		System.out.println("Teléfono - Maria : " + Maria.getTelefono());
+		System.out.println("Teléfono - Maria => " + Maria.getTelefono());
 		System.out.println();
 		System.out.println();
 
 
 		System.out.println("Inyección a través campos:");
-		System.out.println("Teléfono - Antonia : " + Antonia.getTelefono());
+		System.out.println("Teléfono - Antonia => " + Antonia.getTelefono());
 		System.out.println();
 		System.out.println();
 
 
 		System.out.println("Inyección a través campos:");
-		System.out.println("Teléfono - Pedro : " + Pedro.getTelefono2());
+		System.out.println("Teléfono - Pedro => " + Pedro.getTelefono2());
 		System.out.println();
 		System.out.println();
 
@@ -106,7 +107,7 @@ public class UsoMainEmpleados {
 
 		// Utilizar el Bean para injeccion de propiedades
 		System.out.println("Inyección a través Archivo de propiedades:");
-		System.out.println("Página - Ana: " + Ana.getPaginaWeb());
+		System.out.println("Página - Ana => " + Ana.getPaginaWeb());
 		System.out.println();
 		System.out.println();
 
