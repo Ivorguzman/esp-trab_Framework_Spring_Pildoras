@@ -55,7 +55,7 @@ public class UsoMainEmpleados {
 
 
 
-
+		// Paso 3 Utilizar los Bean
 		// Utilizar el Bean para injeccion través del Constructor
 		System.out.println("Inyección a través del Constructor: ");
 		System.out.println("Empleado Juan => " + Juan.getTareas());
