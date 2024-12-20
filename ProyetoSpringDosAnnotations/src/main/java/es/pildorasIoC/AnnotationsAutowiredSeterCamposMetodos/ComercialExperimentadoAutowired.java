@@ -56,7 +56,7 @@ public class ComercialExperimentadoAutowired implements Empleados, InformePatrim
 	@Override
 	public String getInformes() {
 		// Utilizamos la dependencia inyectada para generar y mostrar el informe financiero.
-		return this.informeFinanciero.getInformeFinaciero();
+		return this.informeFinanciero.getInformeFinanciero();
 	}
 
 	// Método sobrescrito de la interfaz InformePatrimonial para devolver el patrimonio.

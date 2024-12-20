@@ -1,41 +1,45 @@
-package es.pildorasIoC.AnnotationsAutowiredSeterCamposMetodos;
+package es.pildorasIoC.AnnotationsAutowiredSeterCamposMetodos; // * Declaración del paquete al que pertenece esta clase
 
 // Importamos la clase para el contexto de aplicación basado en XML de Spring.
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext; // * Importación de la clase ClassPathXmlApplicationContext de Spring para cargar el contexto de la
+																			 // aplicación desde un archivo XML
 
-public class MainUsoAnnotationsAutowiredSeter {
+public class MainUsoAnnotationsAutowiredSeter { // * Declaración de la clase MainUsoAnnotationsAutowiredSeter
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { // * Método principal de la aplicación
 
 		// *********** 01 leer el xml de configuración ********
 		// Creamos un contexto de aplicación Spring leyendo el archivo XML de configuración.
-		ClassPathXmlApplicationContext contextoAnnotation = new ClassPathXmlApplicationContext("aplicacionContexAnnotationAutowiredSeter.xml");
+		ClassPathXmlApplicationContext contextoAnnotation = new ClassPathXmlApplicationContext("aplicacionContexAnnotationAutowiredSeter.xml"); // * Crear el contexto de la
+																																				 // aplicación a partir del
+																																				 // archivo XML de
+																																				 // configuración
 
 		// ********** 02 pedir bean al contenedor ***********
 		// Cuando se utiliza la anotación con atributo: @Component("Experimentado")
-		// Empleados antonio = contextoAnnotation.getBean("Experimentado", Empleados.class)
+		// Empleados antonio = contextoAnnotation.getBean("Experimentado", Empleados.class);
 
-		// Cuando se utiliza la anotacion sin atributo: @Component()
+		// Cuando se utiliza la anotación sin atributo: @Component()
 		// (nombre de la clase en minúsculas ==> "comercialExperimentadoAutowired").
 		// Aquí obtenemos el bean de tipo Empleados del contenedor Spring usando el nombre del bean en minúsculas.
-		Empleados antonio = contextoAnnotation.getBean("comercialExperimentadoAutowired", Empleados.class);
+		Empleados antonio = contextoAnnotation.getBean("comercialExperimentadoAutowired", Empleados.class); // * Obtener el bean del contenedor de Spring
 
 		// Obtenemos el bean de tipo InformePatrimonial del mismo nombre.
-		InformePatrimonial pedro = contextoAnnotation.getBean("comercialExperimentadoAutowired", InformePatrimonial.class);
+		InformePatrimonial pedro = contextoAnnotation.getBean("comercialExperimentadoAutowired", InformePatrimonial.class); // * Obtener el bean del contenedor de Spring
 
 		// ********* 03 Usar el bean ***********
 		// Imprimimos las tareas del empleado 'antonio'.
-		System.out.println("Antonio = " + antonio.getTareas());
+		System.out.println("Antonio = " + antonio.getTareas()); // * Usar el bean para obtener y mostrar las tareas de Antonio
 
 		// Imprimimos los informes generados por el empleado 'antonio'.
-		System.out.println("Antonio = " + antonio.getInformes());
+		System.out.println("Antonio = " + antonio.getInformes()); // * Usar el bean para obtener y mostrar los informes de Antonio
 
 		// Imprimimos el patrimonio de 'pedro'.
-		System.out.println("Pedro = " + pedro.getPatrimonio());
+		System.out.println("Pedro = " + pedro.getPatrimonio()); // * Usar el bean para obtener y mostrar el patrimonio de Pedro
 
 		// ********* 04 Cerrar Contexto ***********
 		// Cerramos el contexto de la aplicación para liberar recursos.
-		contextoAnnotation.close();
+		contextoAnnotation.close(); // * Cerrar el contexto de la aplicación
 
 		/*
 		 * La inversión de control es un patrón de programación que consiste en delegar el control
