@@ -1,98 +1,57 @@
-package es.pildorasIoC.AnnotationsCicloVidaDelBean;
+package es.pildorasIoC.AnnotationsCicloVidaDelBean; // * Declaración del paquete al que pertenece esta clase
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext; // * Importación de la clase ClassPathXmlApplicationContext de Spring para cargar el contexto de la
+																			 // aplicación desde un archivo XML
 
+public class MainUsoAnnotationCicloVidaDelBean { // * Declaración de la clase MainUsoAnnotationCicloVidaDelBean
 
-
-
-public class MainUsoAnnotationCicloVidaDelBean {
-
-	public static void main(String[] args) {
-
+	public static void main(String[] args) { // * Método principal de la aplicación
 
 		// *********** 01 leer el xml de configuración ********
-		ClassPathXmlApplicationContext contextoAnnotation = new ClassPathXmlApplicationContext("aplicacionContexAnnotationCicloVidaDelBean.xml");
-
-
-
+		ClassPathXmlApplicationContext contextoAnnotation = new ClassPathXmlApplicationContext("aplicacionContexAnnotationCicloVidaDelBean.xml"); // * Crear el contexto de la
+																																					 // aplicación a partir
+																																					 // del archivo XML de
+																																					 // configuración
 
 		// ********** 02 pedir bean al contenedor ***********
-		// Cuando se utiliza la anotación con atributo:[ @Component("Experimentado") ]
+		// Cuando se utiliza la anotación con atributo: @Component("Experimentado")
 		/* Empleados antonio = contextoAnnotation.getBean("Experimentado", Empleados.class) */
 
-		// Cuando se utiliza la anotacion sin atributa: @Component() [nombre de la clase en minuscula ==> "comercialExperimentadoAutowired"]
+		// Cuando se utiliza la anotación sin atributo: @Component() [nombre de la clase en minúscula ==> "comercialExperimentadoAutowired"]
 		// Empleados antonio = contextoAnnotation.getBean("ComercialExperimentadoAutowired", Empleados.class);
-		Empleados antonio = contextoAnnotation.getBean("comercialExperimentadoCicloVidaBean", Empleados.class);
-		Empleados lucia = contextoAnnotation.getBean("comercialExperimentadoCicloVidaBean", Empleados.class);
+		Empleados antonio = contextoAnnotation.getBean("comercialExperimentadoCicloVidaBean", Empleados.class); // * Obtener el bean del contenedor de Spring
+		Empleados lucia = contextoAnnotation.getBean("comercialExperimentadoCicloVidaBean", Empleados.class); // * Obtener otro bean del contenedor de Spring
 
-
-
-
-
+		// ********* Usar el bean ***********
 		// System.out.println(antonio.getTareas());
 		// System.out.println(antonio.getInformes());
 
-
-
 		// **************** PATRON Singleton ****************
-		// ********* Usar el bean ***********
-		if (antonio.hashCode() == lucia.hashCode()){
-
-			System.out.println("*********** Ejemplo de Patron Singleton  *************** :");
-			System.out.println("Apuntan al la misma dirección de memoria");
+		if (antonio.hashCode() == lucia.hashCode()){ // * Comparar si ambos beans apuntan a la misma dirección de memoria
+			System.out.println("*********** Ejemplo de Patrón Singleton *************** :");
+			System.out.println("Apuntan a la misma dirección de memoria");
 			System.out.println();
-			System.out.println("antonio Dirección de memoria ==> " + antonio);
-			System.out.println("lucia Dirección de memoria ==> " + lucia);
+			System.out.println("Antonio Dirección de memoria ==> " + antonio);
+			System.out.println("Lucia Dirección de memoria ==> " + lucia);
 			System.out.println();
-			System.out.println("antonio hashCode ==> " + antonio.hashCode());
-			System.out.println("lucia hashCode  ==> " + lucia.hashCode());
-			System.out.println();
-			System.out.println();
+			System.out.println("Antonio hashCode ==> " + antonio.hashCode());
+			System.out.println("Lucia hashCode  ==> " + lucia.hashCode());
 			System.out.println();
 		}
 
-
-
-
 		// **************** PATRON Prototype ****************
-			// ********* Usar el bean ***********
-			if (antonio.hashCode() != lucia.hashCode()){
-				System.out.println("*********** Ejemplo de Patron Prototype *************** :");
-				System.out.println("No apuntan al la misma dirección de memoria");
-				System.out.println();
-				System.out.println("Antonio Dirección de memoria ==> " + antonio);
-				System.out.println("Lucia Dirección de memoria ==> " + lucia);
-				System.out.println();
-				System.out.println("Antonio hashCode ==> " + antonio.hashCode());
-				System.out.println("Lucia hashCode  ==> " + lucia.hashCode());
-			}
+		if (antonio.hashCode() != lucia.hashCode()){ // * Comparar si ambos beans apuntan a diferentes direcciones de memoria
+			System.out.println("*********** Ejemplo de Patrón Prototype *************** :");
+			System.out.println("No apuntan a la misma dirección de memoria");
+			System.out.println();
+			System.out.println("Antonio Dirección de memoria ==> " + antonio);
+			System.out.println("Lucia Dirección de memoria ==> " + lucia);
+			System.out.println();
+			System.out.println("Antonio hashCode ==> " + antonio.hashCode());
+			System.out.println("Lucia hashCode  ==> " + lucia.hashCode());
+		}
 
-		contextoAnnotation.close();
+		// Cerrar el contexto de la aplicación
+		contextoAnnotation.close(); // * Cerrar el contexto de la aplicación para liberar recursos
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
