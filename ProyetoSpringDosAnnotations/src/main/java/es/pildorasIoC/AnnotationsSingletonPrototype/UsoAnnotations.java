@@ -1,4 +1,4 @@
-package es.pildorasIoC.AnnotationsSingletosPrototype; // * Declaración del paquete al que pertenece esta clase
+package es.pildorasIoC.AnnotationsSingletonPrototype; // * Declaración del paquete al que pertenece esta clase
 
 public class UsoAnnotations { // * Declaración de la clase UsoAnnotations
 

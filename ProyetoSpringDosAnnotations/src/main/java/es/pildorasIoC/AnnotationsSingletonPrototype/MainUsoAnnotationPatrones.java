@@ -1,4 +1,4 @@
-package es.pildorasIoC.AnnotationsSingletosPrototype; // * Declaración del paquete al que pertenece esta clase
+package es.pildorasIoC.AnnotationsSingletonPrototype; // * Declaración del paquete al que pertenece esta clase
 
 import org.springframework.context.support.ClassPathXmlApplicationContext; // * Importación de la clase ClassPathXmlApplicationContext de Spring para cargar el contexto de la
 																			 // aplicación desde un archivo XML

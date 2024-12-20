@@ -28,7 +28,7 @@
 
 		Un ejemplo de uso de context:component-scan es el siguiente DONDE base-package="...."
 		es paquete a escanear donde se encuentran las clases a escanear -->
-	<context:component-scan base-package="es.pildorasIoC.AnnotationsSingletosPrototype" />
+	<context:component-scan base-package="es.pildorasIoC.AnnotationsSingletonPrototype" />
 
 
 </beans>

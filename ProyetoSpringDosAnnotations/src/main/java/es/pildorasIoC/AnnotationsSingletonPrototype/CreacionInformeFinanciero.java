@@ -1,4 +1,4 @@
-package es.pildorasIoC.AnnotationsSingletosPrototype; // * Declaración del paquete al que pertenece esta interfaz
+package es.pildorasIoC.AnnotationsSingletonPrototype; // * Declaración del paquete al que pertenece esta interfaz
 
 import org.springframework.stereotype.Component; // * Importación de la anotación @Component de Spring para la detección automática de beans
 

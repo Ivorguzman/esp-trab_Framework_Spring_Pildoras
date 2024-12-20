@@ -1,4 +1,4 @@
-package es.pildorasIoC.AnnotationsSingletosPrototype; // * Declaración del paquete al que pertenece esta interfaz
+package es.pildorasIoC.AnnotationsSingletonPrototype; // * Declaración del paquete al que pertenece esta interfaz
 
 public interface Empleados { // * Declaración de la interfaz Empleados
 

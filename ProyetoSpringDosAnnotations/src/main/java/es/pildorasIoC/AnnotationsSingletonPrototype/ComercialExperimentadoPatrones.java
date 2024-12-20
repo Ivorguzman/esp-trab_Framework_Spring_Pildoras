@@ -1,4 +1,4 @@
-package es.pildorasIoC.AnnotationsSingletosPrototype; // * Declaración del paquete al que pertenece esta clase
+package es.pildorasIoC.AnnotationsSingletonPrototype; // * Declaración del paquete al que pertenece esta clase
 
 import org.springframework.beans.factory.annotation.Autowired; // * Importación de la anotación @Autowired de Spring para la inyección automática de dependencias
 import org.springframework.beans.factory.annotation.Qualifier; // * Importación de la anotación @Qualifier de Spring para especificar la implementación del bean a inyectar
@@ -24,7 +24,7 @@ public class ComercialExperimentadoPatrones implements Empleados { // * Declarac
 	private CreacionInformeFinanciero nuevoInforme; // * Campo privado para almacenar la instancia de CreacionInformeFinanciero
 
 	// @Qualifier("informeFinancieroTrimestre1") // Indica qué clase inyectar
-	@Qualifier("informeFinancieroTriemestre2") // * Indica qué clase inyectar
+	@Qualifier("informeFinancieroTrimestre2") // * Indica qué clase inyectar
 	// @Qualifier("informeFinancieroTrimestre3") // Indica qué clase inyectar
 	@Autowired // * Inyección de dependencia con método setter
 	public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) { // * Método setter para inyectar la dependencia
